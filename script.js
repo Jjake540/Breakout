@@ -67,6 +67,7 @@ function drawPaddle() {
   ctx.fill();
   ctx.closePath();
 }
+
 // Draw bricks on canvas
 function drawBricks() {
   bricks.forEach(column => {
@@ -95,6 +96,49 @@ function movePaddle() {
   }
 }
 
+// Move ball on canvas
+function moveBall () {
+  ball.x += ball.dx;
+  ball.y += ball.dy;
+
+  // Wall collision (right/left)
+  if(ball.x + ball.size > canvas.width || ball.x - ball.size < 0) {
+    ball.dx *= -1;
+  }
+
+  // wall collision (top/bottom)
+  if(ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
+    ball.dy *= -1;
+  }
+  // console.log(ball.x, ball.y);
+
+  // Paddle collision
+  if(
+    ball.x - ball.size > paddle.x && 
+    ball.x + ball.size < paddle.x + paddle.w &&
+    ball.y + ball.size > paddle.y
+  ) {
+    ball.dy = -ball.speed;
+  }
+
+  // Brick collision
+  bricks.forEach(column => {
+    column.forEach(brick => {
+      if(brick.visable) {
+        if(
+          ball.x - ball.size > brick.x && // Left brick size check)
+          ball.x + ball.size < brick.x + brick.w && // Right brick side check
+          ball.y + ball.size > brick. y && // Top brick side check
+          ball.y - ball.size < brick.y + brick.h // Bottom brick side check
+          ) {
+          ball.dy *= -1;
+          brick.visable = false;
+          }
+      }
+    })
+  })
+}
+
 // Draw everything
 function draw() {
   // clear canvas
@@ -115,6 +159,7 @@ function drawScore() {
 // Update canvas drawing and animation
 function update() {
   movePaddle();
+  moveBall();
 
   //Draw everything
   draw();
