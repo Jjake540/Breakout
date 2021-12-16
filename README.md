@@ -12,8 +12,9 @@ Game where you control a paddle with the arrow keys to bounce a ball up to break
 - Keep score
 - Add rules button with slider
 
-Canvas Plan outline
+## Canvas Plan outline
 
+```
 1. Create canvas context
 2. Create and draw ball
 3. Create and draw paddle
@@ -26,3 +27,4 @@ Canvas Plan outline
 10. Add wall bounderies
 11. Increase score when bricks break
 12. Lose - redraw brickds, reset score
+```
