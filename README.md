@@ -1,4 +1,6 @@
-## Breakout! Game
+## Breakout Game
+
+Following Udemy couse in making this Breakout game in vanilla JS
 
 Game where you control a paddle with the arrow keys to bounce a ball up to break bricks. This app uses the HTML5 canvas element and API
 
@@ -28,3 +30,4 @@ Game where you control a paddle with the arrow keys to bounce a ball up to break
 11. Increase score when bricks break
 12. Lose - redraw brickds, reset score
 ```
+<img width="827" alt="Breakout" src="https://user-images.githubusercontent.com/77396594/149228437-2e0c482c-8d64-438d-bffb-1234822d6b5a.png">
